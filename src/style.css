@@ -2,32 +2,32 @@
    DESIGN SYSTEM - CSS VARIABLES
    ============================================ */
 :root {
-  /* COLOR PALETTE - MAUVE & BERRY AESTHETIC */
-  --color-mauve: #D4A5D4;
-  --color-mauve-light: #E8D5E8;
-  --color-mauve-lighter: #F3E9F3;
-  --color-berry-dark: #6C3E6C;
-  --color-berry-deep: #7E3F8F;
-  --color-berry-vibrant: #A04D79;
-  --color-berry-wine: #8B3A62;
+  /* COLOR PALETTE - BOTANICAL & EARTHY AESTHETIC */
+  --color-green-deep: #2E4232;     /* Rich Forest Green (Primary) */
+  --color-green-sage: #8F9E8B;     /* Soft Sage Mist */
+  --color-green-light: #E3EADF;    /* Light Moss Tint */
+  --color-green-lighter: #F2F5F0;  /* Pale Herb */
+  --color-terracotta: #C08261;     /* Warm Clay (Secondary) */
+  --color-clay-dark: #6E4A37;      /* Dark Earth */
+  --color-gold-soft: #D4B996;      /* Golden Sand (Accent) */
   
-  /* PRIMARY & SECONDARY (using mauve/berry) */
-  --color-primary: #7E3F8F;
-  --color-primary-dark: #6C3E6C;
-  --color-primary-light: #E8D5E8;
-  --color-secondary: #A04D79;
-  --color-accent: #D4A5D4;
-  --color-success: #6B9B78;
-  --color-error: #C24C6F;
+  /* PRIMARY & SECONDARY */
+  --color-primary: var(--color-green-deep);
+  --color-primary-dark: #1E2D21;
+  --color-primary-light: var(--color-green-light);
+  --color-secondary: var(--color-terracotta);
+  --color-accent: var(--color-gold-soft);
+  --color-success: #557A46;
+  --color-error: #B2533E;
   
-  --color-text: #3D2D3D;
-  --color-text-secondary: #6C5A6C;
-  --color-text-muted: #9B8A9B;
+  --color-text: #2C2520;           /* Deep Espresso */
+  --color-text-secondary: #5E534C; /* Soft Soil Gray */
+  --color-text-muted: #8D8075;     /* Warm Linen Shadow */
   
-  --color-bg: #FAFAF9;
-  --color-bg-secondary: #F3E9F3;
+  --color-bg: #FAF8F5;             /* Warm Alabaster White */
+  --color-bg-secondary: #F3EFE9;   /* Soft Sand / Cream */
   --color-card: #FFFFFF;
-  --color-border: #E8D5E8;
+  --color-border: #E8E2D9;         /* Creamy Clay Border */
   
   /* TYPOGRAPHY */
   --font-family: 'Inter', system-ui, 'Segoe UI', Arial, sans-serif;
@@ -59,25 +59,25 @@
   --spacing-3xl: 4rem;
   
   /* SHADOWS */
-  --shadow-sm: 0 1px 2px 0 rgba(108, 62, 108, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(108, 62, 108, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(108, 62, 108, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(108, 62, 108, 0.15);
+  --shadow-sm: 0 2px 4px 0 rgba(46, 66, 50, 0.03);
+  --shadow-md: 0 8px 16px -4px rgba(46, 66, 50, 0.08);
+  --shadow-lg: 0 16px 24px -6px rgba(46, 66, 50, 0.12);
+  --shadow-xl: 0 24px 36px -8px rgba(46, 66, 50, 0.16);
   
   /* BORDERS & RADIUS */
   --radius-sm: 4px;
   --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
   
   /* TRANSITIONS */
   --transition-fast: 150ms ease-in-out;
-  --transition-base: 300ms ease-in-out;
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 500ms ease-in-out;
   
   /* CONTAINER */
   --container-width: 1100px;
-  --container-padding: 1rem;
+  --container-padding: 1.5rem;
 }
 
 /* ============================================
@@ -107,9 +107,9 @@ body {
 h1 {
   font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-tight);
+  line-height: 1.15;
   margin-bottom: var(--spacing-md);
-  color: var(--color-berry-dark);
+  color: var(--color-primary);
 }
 
 h2 {
@@ -117,7 +117,7 @@ h2 {
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   margin-bottom: var(--spacing-xl);
-  color: var(--color-berry-deep);
+  color: var(--color-primary);
 }
 
 h3 {
@@ -125,7 +125,7 @@ h3 {
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-tight);
   margin-bottom: var(--spacing-md);
-  color: var(--color-berry-vibrant);
+  color: var(--color-secondary);
 }
 
 p {
@@ -139,7 +139,7 @@ a {
 }
 
 a:hover {
-  color: var(--color-primary-dark);
+  color: var(--color-secondary);
 }
 
 /* ============================================
@@ -148,7 +148,7 @@ a:hover {
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: var(--container-padding);
+  padding: 0 var(--container-padding);
 }
 
 main {
@@ -162,8 +162,8 @@ main {
   position: sticky;
   top: 0;
   z-index: 40;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9));
-  backdrop-filter: blur(8px);
+  background: rgba(250, 248, 245, 0.95);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border);
   box-shadow: var(--shadow-sm);
 }
@@ -178,19 +178,19 @@ main {
 .logo {
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-lg);
-  color: var(--color-text);
-  text-decoration: none;
-  transition: color var(--transition-base);
+  color: var(--color-primary);
+  letter-spacing: -0.5px;
+  transition: opacity var(--transition-base);
 }
 
 .logo:hover {
-  color: var(--color-primary);
+  opacity: 0.85;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
 }
 
 .nav-links a {
@@ -198,7 +198,7 @@ main {
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--radius-md);
   font-weight: var(--font-weight-medium);
-  transition: color var(--transition-base), background-color var(--transition-base);
+  transition: all var(--transition-base);
 }
 
 .nav-links a:hover {
@@ -225,21 +225,9 @@ main {
   display: block;
   width: 24px;
   height: 2px;
-  background-color: var(--color-text);
+  background-color: var(--color-primary);
   border-radius: 2px;
   transition: all var(--transition-base);
-}
-
-.menu-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(12px, 12px);
-}
-
-.menu-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(8px, -8px);
 }
 
 /* ============================================
@@ -250,10 +238,11 @@ main {
   gap: var(--spacing-3xl);
   align-items: center;
   padding: var(--spacing-3xl) 0;
+  min-height: 70vh;
 }
 
 .hero-content {
-  flex: 1;
+  flex: 1.1;
 }
 
 .hero h1 {
@@ -271,7 +260,7 @@ main {
 }
 
 .hero-visual {
-  flex: 1;
+  flex: 0.9;
   display: flex;
   justify-content: center;
 }
@@ -279,9 +268,11 @@ main {
 .hero-visual img {
   max-width: 100%;
   width: 100%;
-  height: auto;
-  border-radius: var(--radius-lg);
+  height: 480px;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
   box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-border);
 }
 
 /* ============================================
@@ -343,7 +334,7 @@ main {
 }
 
 /* ============================================
-   FEATURES & CARDS
+   FEATURES & CARDS (Updated for Professional Look)
    ============================================ */
 .features {
   padding: var(--spacing-3xl) 0;
@@ -363,35 +354,41 @@ main {
 
 .card {
   background-color: var(--color-card);
-  padding: var(--spacing-2xl);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
-  text-align: center;
   transition: all var(--transition-base);
   border: 1px solid var(--color-border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   box-shadow: var(--shadow-xl);
-  border-color: var(--color-primary);
+  border-color: var(--color-secondary);
 }
 
+/* Full-bleed high-end imagery */
 .card img {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto var(--spacing-lg);
-  object-fit: contain;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  margin: 0;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .card h3 {
-  color: var(--color-berry-vibrant);
-  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-xs);
+  color: var(--color-primary);
+  margin-bottom: 0;
 }
 
 .card p {
+  padding: 0 var(--spacing-lg) var(--spacing-lg);
   color: var(--color-text-secondary);
   font-size: var(--font-size-sm);
+  flex-grow: 1;
 }
 
 /* ============================================
@@ -431,7 +428,7 @@ main {
 }
 
 .step h3 {
-  color: var(--color-berry-vibrant);
+  color: var(--color-primary);
 }
 
 .step p {
@@ -462,7 +459,7 @@ main {
   padding: var(--spacing-2xl);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
-  border-left: 4px solid var(--color-primary);
+  border-left: 4px solid var(--color-secondary);
   transition: all var(--transition-base);
 }
 
@@ -493,8 +490,8 @@ main {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background-color: var(--color-primary);
-  color: white;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -551,6 +548,8 @@ main {
   border-radius: var(--radius-md);
   font-size: var(--font-size-base);
   font-family: var(--font-family);
+  background-color: rgba(255, 255, 255, 0.95);
+  color: var(--color-text);
 }
 
 .cta-form input:focus {
@@ -559,14 +558,14 @@ main {
 }
 
 .cta-form .btn {
-  background-color: var(--color-mauve);
-  color: white;
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
   border: none;
   font-weight: var(--font-weight-bold);
 }
 
 .cta-form .btn:hover {
-  background-color: var(--color-berry-vibrant);
+  background-color: #f7e6cf;
   transform: translateY(-2px);
 }
 
@@ -591,7 +590,7 @@ main {
 }
 
 .footer-section h3 {
-  color: var(--color-berry-deep);
+  color: var(--color-primary);
   margin-bottom: var(--spacing-md);
 }
 
@@ -602,7 +601,7 @@ main {
 }
 
 .footer-section a:hover {
-  color: var(--color-primary);
+  color: var(--color-secondary);
 }
 
 .footer-bottom {
@@ -622,6 +621,10 @@ main {
   .hero {
     gap: var(--spacing-2xl);
     padding: var(--spacing-2xl) 0;
+  }
+
+  .hero-visual img {
+    height: 380px;
   }
 
   .cards {
@@ -682,6 +685,10 @@ main {
 
   .hero h1 {
     font-size: var(--font-size-3xl);
+  }
+
+  .hero-visual img {
+    height: 320px;
   }
 
   .cards {
@@ -746,13 +753,21 @@ main {
     font-size: var(--font-size-base);
   }
 
+  .hero-visual img {
+    height: 240px;
+  }
+
   .btn {
     padding: var(--spacing-md) var(--spacing-lg);
     width: 100%;
   }
 
   .card {
-    padding: var(--spacing-lg);
+    padding: 0;
+  }
+
+  .card img {
+    height: 200px;
   }
 
   .step-number {
